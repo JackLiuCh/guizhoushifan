@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贵州师范大学</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//api.map.baidu.com/api?v=2.0&ak=sGpkw6XC9qecsqrfTf64sTgUtAFf7tRj"
+    ></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+        <a href="/guizhoushifan.html">
+          <img src="https://www.gznu.edu.cn/images/gznulogo.png" alt="" />
+        </a>
+        <span class="title">信息主页</span>>
+      </div>
+    </div>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">
+            <img
+              alt="Brand"
+              src="favicon.ico"
+              width="25px"
+              height="25px"
+              style="display: inline;"
+            />
+            <span>站内导航</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="guizhoushifan.html">首页</a>
+            </li>
+            <li><a href="xuexiaogaikaung.html">学校概况</a></li>
+            <li><a href="kangjiyiqing.html">抗击疫情</a></li>
+            <li><a href="shiziduiwu.html">师资队伍</a></li>
+            <li><a href="dangtuanjianshe.html">党团建设</a></li>
+            <li><a href="tesezhuanye.html">特色专业</a></li>
+            <li><a href="xuebaodongtai.html">学报动态</a></li>
+            <li><a href="yuanbuchaxun.html">院部查询</a></li>
+            <li><a href="jianyixinxiang.html">建议信箱</a></li>
+            <li class="active"><a href="xuexiaoMap.html">学校地图</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+        <h2 class="subtitle">
+            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span
+            >校园位置
+        </h2>
+        <div id="map"></div>
+        <h2 class="subtitle">
+            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span
+            >校园地图
+        </h2>
+        <img src="https://www.gznu.edu.cn/__local/0/2E/62/25F6216F9D5F9CFB637FF1C4E7E_A4BB1698_4ACC52.jpg" width="100%" alt="">
+    </div>
+  </body>
+  <script>
+    // 百度地图API功能
+    var map = new BMap.Map("map"); // 创建Map实例
+    var point = new BMap.Point(106.729115,26.59479)
+    var marker = new BMap.Marker(point);  // 创建标注
+	map.addOverlay(marker);               // 将标注添加到地图中
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    map.centerAndZoom(point, 16); // 初始化地图,设置中心点坐标和地图级别
+    //添加地图类型控件
+    map.addControl(
+      new BMap.MapTypeControl({
+        mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP],
+      })
+    );
+    map.setCurrentCity("贵阳"); // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+  </script>
+</html>
